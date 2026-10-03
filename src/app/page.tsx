@@ -2,6 +2,7 @@ import React from 'react';
 import Marquree from './component/Marquree';
 import Mainnews from './component/Mainnews';
 import NewsCurd from './component/NewsCurd';
+import MostRead from './component/MostRead';
 
 interface Itype {
   curationId : string,
@@ -43,7 +44,7 @@ const page = async () => {
 
         </div>
         <div className="lg:col-span-1">
-          {/* সাইডবার উপাদান এখানে বসবে */}
+          <MostRead/>
         </div>
       </div>
     </div>
