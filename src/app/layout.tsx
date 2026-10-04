@@ -3,6 +3,7 @@ import { Noto_Serif_Bengali } from "next/font/google";
 import "./globals.css";
 import Navbar from './component/Navbar';
 import Marquree from "./component/Marquree";
+import Footer from "./component/Footer";
 
 const NotoSerifBengali = Noto_Serif_Bengali({
   subsets: ["latin","bengali"],
@@ -26,6 +27,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <main className= " max-w-7xl mx-auto">
             {children}
         </main>
+        <Footer/>
         </body>
     </html>
   );
