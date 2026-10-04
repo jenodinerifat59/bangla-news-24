@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Navlinks from "./Navlinks";
+import UserInfo from "./UserInfo";
 
 const Navbar = () => {
   const date = new Date().toLocaleDateString("bn-BD", {
@@ -28,15 +29,7 @@ const Navbar = () => {
         </div>
       </div>
     </div>
-
-    <div className="flex items-center justify-end gap-2">
-      <button className="btn bg-transparent border-none">
-        সাইন ইন
-      </button>
-      <button className="btn bg-red-500 text-white hover:bg-red-600">
-        সাইন আপ
-      </button>
-    </div>
+   <UserInfo/>
   </nav>
   <Navlinks/>
 </div>
