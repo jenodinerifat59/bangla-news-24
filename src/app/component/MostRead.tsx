@@ -1,3 +1,4 @@
+import Link from 'next/link';
 interface MostUseData{
     id : string;
     title : string;
@@ -13,10 +14,12 @@ const MostRead = async() => {
             <div className='grid gap-3'>
                 {
                     news.map((post, ind)=>
-                       <div className='flex gap-2' key={post.id}>
+                       <Link href={`/news/${post.id}`}>
+                        <div className='flex gap-2' key={post.id}>
                          <span className='font-bold text-red-500 '>{ind + 1}</span>
-                         <p>{post.title}</p>
+                         <p className = "hover:text-red-500">{post.title}</p>
                        </div>
+                       </Link>
                     )
                 }
             </div>

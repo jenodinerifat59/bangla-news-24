@@ -1,8 +1,8 @@
 import Image from 'next/image';
-import React from 'react';
+import Link from 'next/link';
 
 interface NewsType{
-id: string;
+  id: string;
   title: string;
   description: string;
   link: string;
@@ -20,7 +20,9 @@ const Mainnews = ({ news }: {news: NewsType[]}) => {
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-5   mx-auto">
+     
       <div className="lg:col-span-2 card bg-base-100 shadow-md hover:shadow-xl transition-all duration-300 border border-base-200 rounded-2xl overflow-hidden group">
+         <Link href={`/news/${fastNews.id}`}>
         <figure className="relative h-64 sm:h-80 w-full overflow-hidden bg-base-200">
           <Image
             src={fastNews.imageUrl}
@@ -44,6 +46,7 @@ const Mainnews = ({ news }: {news: NewsType[]}) => {
             {fastNews.description}
           </p>
         </div>
+      </Link>
       </div>
       <div className="flex flex-col justify-between divide-y divide-base-200 bg-base-100 p-4 border border-base-200 rounded-2xl shadow-sm">
         <h3 className="text-lg font-bold pb-3 text-base-content border-b border-base-200">
@@ -52,7 +55,8 @@ const Mainnews = ({ news }: {news: NewsType[]}) => {
         
         <div className="divide-y divide-base-200">
           {othersNews.slice(0,5).map((post) => (
-            <div 
+            <Link href={`/news/${post.id}`}>
+             <div 
               key={post.id} 
               className="py-4 first:pt-3 last:pb-0 group/item cursor-pointer"
             >
@@ -63,7 +67,8 @@ const Mainnews = ({ news }: {news: NewsType[]}) => {
               <h4 className="text-base font-semibold text-base-content group-hover/item:text-red-500 transition-colors duration-200 line-clamp-2 leading-snug">
                 {post.title}
               </h4>
-            </div>
+            </div>           
+            </Link>
           ))}
         </div>
       </div>

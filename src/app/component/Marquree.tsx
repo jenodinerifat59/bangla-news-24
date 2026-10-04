@@ -1,5 +1,6 @@
 import MarqueeText from "react-marquee-text"
 import "react-marquee-text/dist/styles.css"
+import Link from 'next/link';
 interface Headline {
     id: string,
     title: string
@@ -17,7 +18,7 @@ const Marquree = async() => {
             <MarqueeText className="py-1.5" direction='right' duration={15}  pauseOnHover={true}>
             {
                 headliens.map(headline => <span key={headline.id}>
-                    <span>{headline.title}</span>
+                   <Link className='hover:underline' href={`/news/${headline.id}`}> <span>{headline.title}</span></Link>
                     <span className="mx-3">●</span>
                 </span>)
             }

@@ -1,6 +1,8 @@
 import Image from "next/image";
+import Link from "next/link";
 
 interface Post {
+  id:string;
   title: string;
   description: string;
   imageUrl: string;
@@ -9,8 +11,8 @@ interface Post {
 
 const NewsCard = ({ post }: { post: Post }) => {
   return (
+   <Link href={`/news/${post.id}`}>
     <div className="group relative flex flex-col overflow-hidden rounded-2xl border border-sky-100/80 bg-base-100 shadow-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:border-sky-300 hover:shadow-xl hover:shadow-sky-500/5">
-      {/* Image Container */}
       <figure className="relative h-60 w-full overflow-hidden bg-base-200 sm:h-72">
         <Image
           src={post.imageUrl}
@@ -36,7 +38,8 @@ const NewsCard = ({ post }: { post: Post }) => {
           </p>
         </div>
       </div>
-    </div>
+    </div> 
+   </Link>
   );
 };
 
