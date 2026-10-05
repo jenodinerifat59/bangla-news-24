@@ -31,7 +31,17 @@ const SignUpPage = () => {
       toast.error(error?.message as string);
     }
   };
-
+  
+  const handelGoogleSignIn = async () => {
+  const data = await authClient.signIn.social({
+    provider: "google",
+  });
+};
+  const handelGithubSignIn = async () => {
+  const data = await authClient.signIn.social({
+    provider: "github",
+  });
+};
   return (
     <div>
       <form onSubmit={handelSubmit}>
@@ -68,6 +78,10 @@ const SignUpPage = () => {
           </span>
         </fieldset>
       </form>
+      <div className='flex items-center justify-center gap-4 my-4'>
+        <button className="btn text-red-500 " onClick={handelGoogleSignIn}>Sign In With  Google</button>
+        <button className="btn text-red-500 " onClick={handelGithubSignIn}>Sign In With  Github</button>
+      </div>
     </div>
   );
 };

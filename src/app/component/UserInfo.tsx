@@ -21,13 +21,15 @@ const UserInfo = () => {
           <div className="flex items-center gap-2 bg-white px-2 py-1.5">
             {/* Avatar */}
             <div className="relative">
+               <Link href='/profile'>
               <div className="w-10 h-10 overflow-hidden rounded-full ring-2 ring-red-500 ring-offset-2">
-                <img
+               <img
                   src={user.image || "/default-user.png"}
                   alt={user.name || "User"}
                   className="w-full h-full object-cover"
                 />
               </div>
+              </Link>
 
               {/* Online Indicator */}
               <span className="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-green-500 border-2 border-white"></span>
