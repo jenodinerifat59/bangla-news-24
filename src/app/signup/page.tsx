@@ -3,6 +3,7 @@ import { FormEvent } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { authClient } from "@/lib/auth-client";
+import toast from "react-hot-toast";
 
 const SignUpPage = () => {
   const router = useRouter();
@@ -10,7 +11,7 @@ const SignUpPage = () => {
   const handelSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const formData = new FormData(e.target);
+    const formData = new FormData(e.currentTarget);
     const user = Object.fromEntries(formData.entries());
 
     const { data, error } = await authClient.signUp.email({
@@ -22,12 +23,12 @@ const SignUpPage = () => {
     });
 
     if (data) {
-      console.log(data);
+      toast.success("Sign Up successfully !")
       router.push("/");
     }
 
     if (error) {
-      console.log(error);
+      toast.error(error?.message as string);
     }
   };
 
