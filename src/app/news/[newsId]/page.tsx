@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { notFound } from "next/navigation";
 
 type PageProps = {
     params: Promise<{
@@ -13,7 +14,7 @@ const NewsDetails = async ({ params }: PageProps) => {
     const news = data.data;
 
     if (!news) {
-        return <div className="p-10 text-center text-gray-500">সংবাদ পাওয়া যায়নি!</div>;
+        notFound()
     }
 
     return (

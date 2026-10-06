@@ -1,5 +1,6 @@
 
 import NewsCard from "@/app/component/NewsCurd";
+import { notFound } from "next/navigation";
 
 export interface NewsType {
     id: string;
@@ -30,6 +31,10 @@ const CategoryPage = async ({ params }: PageProps) => {
 
     const data: ApiResponse = await res.json();
     const categoryData = data.data;
+
+    if (!categoryData) {
+            notFound()
+        }
 
     return (
         <div>
